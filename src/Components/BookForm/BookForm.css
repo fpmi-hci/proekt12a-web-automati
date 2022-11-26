@@ -1,0 +1,23 @@
+.book-form-icon
+{
+    width: 30px;
+    height:30px;
+    border-radius: 15px;
+}
+
+.remove-button
+{
+    width: 30px;
+    height: 30px;
+}
+
+.book-form-div
+{
+    padding: 5px;
+}
+
+.book-form-text-div
+{
+    margin: 0 40px;
+    width: 200px;
+}

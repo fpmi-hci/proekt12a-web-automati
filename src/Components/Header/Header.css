@@ -1,0 +1,54 @@
+.header
+{
+    height:70px;
+}
+
+.icon
+{
+    height: 50px;
+    max-width: 50px;
+    margin: 10px;
+}
+
+.right-panel
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 500px;
+    height: 100vh;
+    border: solid;
+    background-color: white;
+
+    color: black;
+}
+
+.right-panel-header
+{
+    height: 10vh;
+}
+
+
+.catalog-container
+{
+    height: 65vh;
+}
+
+
+.buy-button-container
+{
+    border: 1px solid;
+    height: 20vh;
+}
+
+.buy-button
+{
+    width: 400px;
+    height: 15vh;
+    margin: 25px;
+
+    background-color: #14AE5C;
+    color: white;
+    font-size: 32px;
+}
+

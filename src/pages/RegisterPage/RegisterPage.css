@@ -1,0 +1,26 @@
+.section
+{
+    background-color: #508bfc;
+}
+
+.circle-card
+{
+    border-radius: 1rem;
+}
+
+.invalid-form-text
+{
+    color: red;
+    display: block;
+}
+
+.register-success-text
+{
+    color: forestgreen;
+    display: block;
+}
+
+.hidden
+{
+    visibility: collapse;
+}
