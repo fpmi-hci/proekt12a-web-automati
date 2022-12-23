@@ -41,7 +41,7 @@ export function BookForm(props : BookFormProps)
 
     return (
         <div className='border d-inline-block book-form-div'>
-            <img className='d-inline-block book-form-icon' src={props.imageSrc}/>
+            <img className='d-inline-block book-form-icon' src={props.imageSrc} alt=''/>
             <div className='d-inline-block book-form-text-div'>
                 <p><b>{props.title}</b></p>
                 <p>{props.authors.map((props) => {
@@ -52,7 +52,7 @@ export function BookForm(props : BookFormProps)
             <div className='d-inline-block'>
                 <b>{props.cost}<span>руб</span></b>
             </div>
-            <img className='d-inline-block col remove-button' src='/books/png/cross.png' onClick={()=>removeBook(props.id)}/>
+            <img className='d-inline-block col remove-button' src='/books/png/cross.png' alt='' onClick={()=>removeBook(props.id)}/>
         </div>
 
     )

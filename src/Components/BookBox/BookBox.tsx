@@ -85,7 +85,7 @@ export function BookBox(props : BookBoxProps)
         axios.get<DownloadBookResponse>(url)
             .then(res => {
                 const url = window.URL.createObjectURL(new Blob([base64toBlob(res.data.content, 'text/plain')]
-                    ,{type: "application/pdf"}))
+                    ,{type: "text/plain"}))
                 var link = document.createElement('a');
                 link.href = url;
                 link.setAttribute('download', res.data.fileName);

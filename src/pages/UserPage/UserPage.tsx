@@ -1,5 +1,4 @@
 import React, {useLayoutEffect, useState} from 'react'
-import {useParams} from "react-router-dom";
 
 import Image from 'react-bootstrap/Image'
 
@@ -11,75 +10,72 @@ import {User} from "../../types/User";
 
 import axios from "axios";
 
-type UserParams = {
-    id: string
-};
-
 export function UserPage()
 {
-    function getUserInfo()
-    {
-        const url = `http://readmeapplication-env.eba-5kjirdez.us-east-1.elasticbeanstalk.com/users/self`;
-
-        axios.defaults.baseURL = url;
-        axios.defaults.headers.get['Content-Type'] = 'application/json;charset=utf-8';
-        axios.defaults.headers.get['Authorized'] = localStorage.getItem('auth');
-        axios.defaults.headers.get['Access-Control-Allow-Methods'] = 'GET';
-        axios.get<User>(url)
-            .then(response => {
-                // console.log('response: ' + JSON.stringify(response.data));
-                setUser(response.data);
-                console.log(user);
-                // console.log('genres: ' + JSON.stringify(genres));
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    }
-
-    function getBooks() {
-        // console.log('getData started...');
-        const url = 'http://readmeapplication-env.eba-5kjirdez.us-east-1.elasticbeanstalk.com/books/purchased';
-        axios.defaults.baseURL = url;
-        axios.defaults.headers.get['Content-Type'] = 'application/json;charset=utf-8';
-        axios.defaults.headers.get['Authorized'] = localStorage.getItem('auth');
-        axios.defaults.headers.get['Access-Control-Allow-Methods'] = 'GET';
-        axios.defaults.headers.get['Access-Control-Allow-Origin'] = '*';
-        axios.get<Book[]>(url)
-            .then(response => {
-                // console.log('response: ' + JSON.stringify(response.data));
-                const booksResponse = response.data;
-                let data : BookBoxProps[] = [];
-                booksResponse.forEach(element => {
-                    let bookBox : BookBoxProps = {
-                        id: element.id,
-                        imageSrc: element.imageUrl,
-                        authors: element.authors,
-                        title: element.title,
-                        cost: element.cost,
-                        type: BookBoxType.Download
-                    };
-                    data.push(bookBox);
-                })
-                setBooks(data);
-                console.log(books);
-                // console.log('data: ' + JSON.stringify(data));
-                // console.log('getData finished...');
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    }
-
-    var { id } = useParams<UserParams>();
+    // var { id } = useParams<UserParams>();
 
     const [user, setUser] = useState<User>();
     const [books, setBooks] = useState<BookBoxProps[]>([]);
 
     useLayoutEffect(()=>{
+
+        function getUserInfo()
+        {
+            const url = `http://readmeapplication-env.eba-5kjirdez.us-east-1.elasticbeanstalk.com/users/self`;
+
+            axios.defaults.baseURL = url;
+            axios.defaults.headers.get['Content-Type'] = 'application/json;charset=utf-8';
+            axios.defaults.headers.get['Authorized'] = localStorage.getItem('auth');
+            axios.defaults.headers.get['Access-Control-Allow-Methods'] = 'GET';
+            axios.get<User>(url)
+                .then(response => {
+                    // console.log('response: ' + JSON.stringify(response.data));
+                    setUser(response.data);
+                    console.log(user);
+                    // console.log('genres: ' + JSON.stringify(genres));
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+
+        function getBooks() {
+            // console.log('getData started...');
+            const url = 'http://readmeapplication-env.eba-5kjirdez.us-east-1.elasticbeanstalk.com/books/purchased';
+            axios.defaults.baseURL = url;
+            axios.defaults.headers.get['Content-Type'] = 'application/json;charset=utf-8';
+            axios.defaults.headers.get['Authorized'] = localStorage.getItem('auth');
+            axios.defaults.headers.get['Access-Control-Allow-Methods'] = 'GET';
+            axios.defaults.headers.get['Access-Control-Allow-Origin'] = '*';
+            axios.get<Book[]>(url)
+                .then(response => {
+                    // console.log('response: ' + JSON.stringify(response.data));
+                    const booksResponse = response.data;
+                    let data : BookBoxProps[] = [];
+                    booksResponse.forEach(element => {
+                        let bookBox : BookBoxProps = {
+                            id: element.id,
+                            imageSrc: element.imageUrl,
+                            authors: element.authors,
+                            title: element.title,
+                            cost: element.cost,
+                            type: BookBoxType.Download
+                        };
+                        data.push(bookBox);
+                    })
+                    setBooks(data);
+                    console.log(books);
+                    // console.log('data: ' + JSON.stringify(data));
+                    // console.log('getData finished...');
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+
         getUserInfo();
         getBooks();
-    }, [])
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <div>

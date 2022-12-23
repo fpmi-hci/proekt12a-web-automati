@@ -81,7 +81,7 @@ export function Header()
         <header className='bg-primary text-white header'>
             <div className=' d-inline-block col'>
                 <a href={isAuthenticated() ? `/users/${user?.id}` : '/login'}>
-                    <img src={'/books/png/person.png'} className='d-inline-block rounded-circle icon bg-white'/>
+                    <img src={'/books/png/person.png'} alt='' className='d-inline-block rounded-circle icon bg-white'/>
                 </a>
             </div>
             <div className=' d-inline-block col'>
@@ -92,10 +92,10 @@ export function Header()
             <div className='d-inline-block col-4 col-sm-6 col-xl-9'></div>
             <div className='d-inline-block'>
                 <button className='btn col' id='searchMenuButton' onClick={() => showRightPanel('search-right-panel')}>
-                    <img src='/books/png/022-icon-3839775.png' className='d-inline-block icon'/>
+                    <img src='/books/png/022-icon-3839775.png' className='d-inline-block icon' alt={''}/>
                 </button>
                 <button className='btn col' id='catalogMenuButton' onClick={() => showRightPanel('catalog-right-panel')}>
-                    <img src='/books/png/034-icon-3839819.png' className='d-inline-block icon'/>
+                    <img src='/books/png/034-icon-3839819.png' className='d-inline-block icon' alt={''}/>
                 </button>
             </div>
             <div>
@@ -103,7 +103,7 @@ export function Header()
                     <div className='inner-header'>
                         <div>
                             <button className='btn col' id='searchMenuButton' onClick={() => hideRightPanel('search-right-panel')}>
-                                <img src='/books/png/022-icon-3839775.png' className='d-inline-block icon'/>
+                                <img src='/books/png/022-icon-3839775.png' className='d-inline-block icon' alt={''}/>
                             </button>
                             <h1 className='d-inline-block col-9'>Поиск</h1>
                             <hr/>
@@ -129,7 +129,7 @@ export function Header()
                 <div className='right-panel invisible' id='catalog-right-panel'>
                     <div className='right-panel-header'>
                         <button className='btn col' id='searchMenuButton' onClick={() => hideRightPanel('catalog-right-panel')}>
-                            <img src='/books/png/034-icon-3839819.png' className='d-inline-block icon'/>
+                            <img src='/books/png/034-icon-3839819.png' className='d-inline-block icon' alt={''}/>
                         </button>
                         <h1 className='d-inline-block col-9'>Избранное</h1>
                     </div>

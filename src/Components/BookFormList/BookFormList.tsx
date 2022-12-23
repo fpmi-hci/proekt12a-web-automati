@@ -108,7 +108,7 @@ export function BookFormList()
     }
 
     const [data, setData] = useState<BookFormProps[]>([]);
-    const [selectedIds, setSelectedIds] = useState<number[]>([]);
+    const [selectedIds] = useState<number[]>([]);
 
     useLayoutEffect(()=>{
         getFavorites();
