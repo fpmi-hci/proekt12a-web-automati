@@ -81,7 +81,7 @@ export function Header()
         <header className='bg-primary text-white header'>
             <div className=' d-inline-block col'>
                 <a href={isAuthenticated() ? `/users/${user?.id}` : '/login'}>
-                    <img src={'/books/png/022-icon-3839775.png'} className='d-inline-block rounded-circle icon bg-white'/>
+                    <img src={'/books/png/person.png'} className='d-inline-block rounded-circle icon bg-white'/>
                 </a>
             </div>
             <div className=' d-inline-block col'>

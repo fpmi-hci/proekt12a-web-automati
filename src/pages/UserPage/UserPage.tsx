@@ -19,10 +19,11 @@ export function UserPage()
 {
     function getUserInfo()
     {
-        const url = `http://readmeapplication-env.eba-5kjirdez.us-east-1.elasticbeanstalk.com/users/${id}`;
+        const url = `http://readmeapplication-env.eba-5kjirdez.us-east-1.elasticbeanstalk.com/users/self`;
 
         axios.defaults.baseURL = url;
         axios.defaults.headers.get['Content-Type'] = 'application/json;charset=utf-8';
+        axios.defaults.headers.get['Authorized'] = localStorage.getItem('auth');
         axios.defaults.headers.get['Access-Control-Allow-Methods'] = 'GET';
         axios.get<User>(url)
             .then(response => {
